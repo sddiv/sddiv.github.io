@@ -1,0 +1,24 @@
+theme: jekyll-theme-minimal
+title: Divyendu Thinks
+description: Exploring the intersection of AI, technology, and human problem-solving
+
+# Author information
+author: Divyendu Singh
+bio: "Technology professional passionate about AI, solving complex problems and just the plain art of creation!"
+linkedin: "https://www.linkedin.com/in/sddiv/"
+url: "https://sddiv.github.io"
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Divyendu Singh"
+
+# Excerpt settings
+excerpt_separator: <!--more-->
+
+# Permalink structure
+permalink: /blog/:year/:month/:day/:title/

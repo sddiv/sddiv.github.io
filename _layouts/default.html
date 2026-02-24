@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+    {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:author" content="{{ site.author }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="header-content">
+          <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+          <nav class="header-nav">
+            <a href="/archive" class="nav-link">Archive</a>
+            <a href="/disclaimers" class="nav-link">Disclaimers</a>
+          </nav>
+        </div>
+        {% if site.description and page.url == "/" %}
+          <p class="site-description">{{ site.description }}</p>
+        {% endif %}
+      </header>
+
+      <div class="content-container">
+        <aside class="sidebar-left">
+          {% if page.date or page.url == "/about-me/" %}
+          <nav class="table-of-contents">
+            <div class="toc-header">Contents</div>
+            <div id="toc-list"></div>
+          </nav>
+          {% elsif page.url == "/" %}
+          <nav class="post-timeline">
+            <div class="timeline-header">Timeline</div>
+            {% comment %} Determine what level of detail to show {% endcomment %}
+            {% assign timeline_posts = site.posts | slice: 0, 10 %}
+            {% assign first_post = timeline_posts | first %}
+            {% assign first_year = first_post.date | date: "%Y" %}
+            {% assign first_month = first_post.date | date: "%Y-%m" %}
+            {% assign same_year = true %}
+            {% assign same_month = true %}
+
+            {% for post in timeline_posts %}
+              {% assign post_year = post.date | date: "%Y" %}
+              {% assign post_month = post.date | date: "%Y-%m" %}
+
+              {% if post_year != first_year %}
+                {% assign same_year = false %}
+                {% assign same_month = false %}
+              {% endif %}
+
+              {% if post_month != first_month %}
+                {% assign same_month = false %}
+              {% endif %}
+            {% endfor %}
+
+            <div class="timeline-track">
+              {% for post in timeline_posts %}
+              <a href="{{ post.url | relative_url }}" class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">
+                  {% if same_month %}
+                    {{ post.date | date: "%d" }}
+                  {% elsif same_year %}
+                    {{ post.date | date: "%b" }}
+                  {% else %}
+                    {{ post.date | date: "%Y" }}
+                  {% endif %}
+                </span>
+                <div class="timeline-content">
+                  <span class="timeline-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                  <span class="timeline-title">{{ post.title }}</span>
+                </div>
+              </a>
+              {% endfor %}
+            </div>
+          </nav>
+          {% endif %}
+        </aside>
+
+        <main>
+          {{ content }}
+        </main>
+
+        <aside class="sidebar-right">
+          <div class="sidebar-widget author-card">
+            <p class="author-bio">{{ site.bio }}</p>
+            <div class="author-links">
+              <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="author-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="/about-me" class="author-link author-link-button">
+                About Me
+              </a>
+            </div>
+          </div>
+
+          {% if page.tags %}
+          <div class="sidebar-widget tags-widget">
+            <div class="widget-title">Topics</div>
+            <div class="tags-list">
+              {% for tag in page.tags %}
+                <span class="sidebar-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </aside>
+      </div>
+
+      <footer>
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All views are my own. <a href="/disclaimers">Full Disclaimers</a></p>
+      </footer>
+    </div>
+
+    <script>
+      // Generate table of contents with scroll highlighting
+      document.addEventListener('DOMContentLoaded', function() {
+        const tocList = document.getElementById('toc-list');
+        if (!tocList) return;
+
+        const content = document.querySelector('.post-content') || document.querySelector('.experience-page');
+        if (!content) return;
+
+        const headings = content.querySelectorAll('h2, h3');
+        if (headings.length === 0) return;
+
+        const tocLinks = [];
+
+        // Create ToC links
+        headings.forEach((heading, index) => {
+          const id = 'heading-' + index;
+          heading.id = id;
+
+          const link = document.createElement('a');
+          link.href = '#' + id;
+          link.textContent = heading.textContent;
+          link.className = 'toc-link toc-' + heading.tagName.toLowerCase();
+          link.dataset.headingId = id;
+
+          tocList.appendChild(link);
+          tocLinks.push(link);
+        });
+
+        // Highlight active section on scroll
+        const observerOptions = {
+          rootMargin: '-100px 0px -66%',
+          threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.id;
+            const tocLink = tocList.querySelector(`[data-heading-id="${id}"]`);
+
+            if (entry.isIntersecting) {
+              // Remove active class from all links
+              tocLinks.forEach(link => link.classList.remove('active'));
+              // Add active class to current link
+              if (tocLink) {
+                tocLink.classList.add('active');
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observe all headings
+        headings.forEach((heading) => {
+          observer.observe(heading);
+        });
+      });
+    </script>
+  </body>
+</html>

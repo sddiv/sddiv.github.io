@@ -1,0 +1,353 @@
+---
+layout: default
+title: About Me
+---
+
+<style>
+  :root {
+    --navy: #1a365d;
+    --blue: #2b6cb0;
+    --dark: #2d3748;
+    --med: #4a5568;
+    --light: #718096;
+    --lighter: #a0aec0;
+    --border: #e2e8f0;
+    --bg-card: #f7fafc;
+    --bg-tag: #ebf4ff;
+    --tag-text: #2b6cb0;
+  }
+
+  .experience-page h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .experience-page .subtitle {
+    font-size: 1.1rem;
+    color: var(--med);
+    margin-bottom: 16px;
+  }
+
+  .experience-page .tagline {
+    font-size: 1rem;
+    color: var(--light);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .experience-page section {
+    margin-top: 48px;
+  }
+
+  .experience-page section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .experience-page .section-desc {
+    color: var(--med);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .experience-page .about-section p {
+    color: var(--med);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+
+  .project {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    background: white;
+    transition: box-shadow 0.2s;
+  }
+
+  .project:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .project h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .project p {
+    color: var(--med);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .project .impact {
+    font-size: 0.88rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .tech-tags span {
+    background: var(--bg-tag);
+    color: var(--tag-text);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .timeline-item .year {
+    font-size: 0.82rem;
+    color: var(--lighter);
+    font-weight: 600;
+    min-width: 100px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .timeline-item .detail h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .timeline-item .detail p {
+    font-size: 0.88rem;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .skill-category h4 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--lighter);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .skill-grid {
+      grid-template-columns: 1fr;
+    }
+    .timeline-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .timeline-item .year {
+      text-align: left;
+    }
+  }
+</style>
+
+<div class="experience-page">
+
+<h1>Divyendu Singh</h1>
+<p class="subtitle">Staff Data Framework Engineer at Teradata</p>
+<p class="tagline">Building enterprise data platforms, AI pipelines, and the frameworks that engineering organizations rely on daily — with 16+ years of depth across the full stack.</p>
+
+<section class="about-section">
+  <h2>What I Do Now</h2>
+  <p>I'm a Technical Lead at Teradata, and the through-line of my work is leverage. I find where an organization is solving the same problem fifty different ways, build the system that unifies the approach, and drive adoption until it becomes the standard. Right now that means data engineering frameworks, Airflow orchestration, governance platforms, and AI/ML pipelines — but the pattern has been the same at every stage of my career.</p>
+  <p>A junior engineer with AI can produce more code. A Staff engineer with AI can produce more <em>leverage.</em> The hard part was never writing the code — it's knowing what's worth building, designing it so it scales, and getting an entire org to actually use it. That's what I do.</p>
+
+  <h2 style="margin-top: 36px;">The Full Circle</h2>
+  <p>Before enterprise data platforms, I spent years building systems closer to the hardware — and it started with a contrarian bet.</p>
+  <p>In 2009, for my final year engineering project, I chose to implement David Lowe's SIFT algorithm — a computer vision technique — on a GPU using OpenGL shaders. The premise was contrarian for its time: <em>GPU computing isn't limited to games.</em> My teachers questioned the ambition. We had to learn Objective-C, OpenGL, the shader language, and the underlying mathematics simultaneously. The math-to-shader translation proved harder than expected, and the GPU drivers had bugs. But we reduced scope, got feature detection working on the GPU, and I received the highest grade in my batch.</p>
+  <p>Sixteen years later, that intuition has been validated beyond anything I could have imagined. GPU computing is now the foundation of the AI revolution — the same parallel processing architecture I explored in a college lab now powers the deep learning models I integrate into production systems. It has come full circle.</p>
+  <p>Since that project, I've built systems at every layer of the stack — enterprise data platforms and AI-powered governance tools, deep learning analytics for semiconductor manufacturing, IoT-to-cloud data pipelines, factory automation software controlling robot arms, real-time video streaming and image processing, and mobile apps in the early App Store era. At each stage, I've built frameworks and platforms that other engineers build on top of.</p>
+</section>
+
+<section>
+  <h2>Current Work — Teradata, Data & AI Organization</h2>
+  <p class="section-desc">Technical Lead in Teradata's Data & AI organization, leading a cross-functional team of Senior Data Engineers, Data Scientists, and BI Engineers. I turn narrow asks into reusable infrastructure and let the results drive adoption.</p>
+
+  <div class="projects">
+    <article class="project">
+      <h3>Reusable Data Engineering Frameworks</h3>
+      <p>Asked to build a file download feature. I saw the platform opportunity and built it as a config-driven, massively parallel framework from day one — handling OAuth, pagination, state management, and failure recovery. Proved it at scale on an AI pipeline processing 112K documents. The results turned leadership into advocates.</p>
+      <div class="impact">Now adopted org-wide by 50+ engineers.</div>
+    </article>
+
+    <article class="project">
+      <h3>Enterprise Workflow Orchestration</h3>
+      <p>Championed and leading a migration to Apache Airflow — not just the technical build, but the organizational change: standards, support model, and phased rollout. Deep in Airflow internals, from cluster architecture to custom plugin development.</p>
+    </article>
+
+    <article class="project">
+      <h3>Governance & Platform Tooling</h3>
+      <p>Recognized the absence of governance tooling for Data & AI initiatives. Designing and building the platform from scratch — declarative form engines, reusable UI component libraries, and schema versioning that treats form data as evolvable artifacts.</p>
+    </article>
+
+    <article class="project">
+      <h3>AI/ML Pipelines</h3>
+      <p>Building end-to-end pipelines: OCR, vector embeddings, RAG-based semantic search, and AI assistants — connecting data that was previously siloed into tools teams can actually use.</p>
+    </article>
+
+    <article class="project">
+      <h3>Data Pipelines</h3>
+      <p>Building and maintaining marketing analytics data infrastructure, including cloud data warehouse ingestion from external sources like BigQuery and Google Analytics.</p>
+    </article>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>Apache Airflow</span><span>REST APIs</span><span>BigQuery</span><span>Teradata Vantage</span><span>Kubernetes</span><span>Docker</span><span>Vector Databases</span><span>RAG</span>
+  </div>
+</section>
+
+<section>
+  <h2>Previous — Sapphire Automation, Industrial IoT & Analytics</h2>
+  <p class="section-desc">7 years building data platforms and automation systems across semiconductor, consumer electronics, and industrial IoT. At each stage, the pattern was the same: find the fragmentation, build the platform, drive adoption.</p>
+
+  <div class="projects">
+    <article class="project">
+      <h3>Deep Learning Analytics (2022–2023)</h3>
+      <p>Identified that each analytics team was building one-off detection pipelines. Architected a pluggable platform where any model could be configured and deployed across use cases. Processing 5GB of high-resolution imagery daily with leaderless high-availability architecture.</p>
+    </article>
+
+    <article class="project">
+      <h3>Stream Processing (2017–2018)</h3>
+      <p>Recognized divergent analytics backends and unified them into a single platform. Led a cross-departmental initiative across 5 teams to standardize AI model commissioning workflows. Automated IIoT device provisioning. Reduced development time by 50%, improved reliability by 8%, increased R&D efficiency by 20%.</p>
+    </article>
+
+    <article class="project">
+      <h3>IoT Data Pipelines (2019)</h3>
+      <p>Saw disconnected factory-floor and cloud systems. Built multi-stage edge-to-cloud data pipelines on AWS for real-time manufacturing quality monitoring.</p>
+    </article>
+
+    <article class="project">
+      <h3>Factory Automation (2016–2017)</h3>
+      <p>Built software controlling industrial equipment (robot arms, conveyors, test fixtures) with database-backed monitoring and analytics. Led development teams with technical mentorship.</p>
+    </article>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>C#</span><span>C</span><span>AWS</span><span>Docker</span><span>Kafka</span><span>RabbitMQ</span><span>MySQL</span><span>Microservices</span><span>REST APIs</span><span>Modbus</span><span>TCP/IP</span>
+  </div>
+</section>
+
+<section>
+  <h2>Earlier Career</h2>
+  <div class="timeline-items">
+    <div class="timeline-item">
+      <div class="year">2013 – 2016</div>
+      <div class="detail">
+        <h4>Programmer Analyst — TechJini Solutions (now Datamatics Digital)</h4>
+        <p>Developed macOS industrial automation software — recipe management, equipment control, data collection, and analytics dashboards. Built communication frameworks using Modbus and TCP/IP for production floor systems.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2010 – 2013</div>
+      <div class="detail">
+        <h4>Senior Software Engineer — Livestream (now Vimeo)</h4>
+        <p>Developed iOS applications for live video streaming. Built a photo workflow app for the Volvo Ocean Race that processed 200MB images on iPad hardware in real-time. Deep work in ffmpeg, image processing, and streaming protocols.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2009 – 2010</div>
+      <div class="detail">
+        <h4>Mobile App Developer — Nuvus Technologies</h4>
+        <p>One of the first employees at a 13-day-old startup during the early App Store era. Built cross-platform apps for iOS, Android, and Windows.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2005 – 2009</div>
+      <div class="detail">
+        <h4>B.Tech in Computer Science — UP Technical University</h4>
+        <p>Where it all started. Final project: GPU-accelerated implementation of David Lowe's SIFT algorithm using OpenGL shaders — the contrarian bet that GPU computing would go beyond games. Received highest grade in the batch. Also built a sorting algorithm benchmarking system to empirically verify textbook asymptotic complexity — because theory should meet reality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Expertise</h2>
+  <div class="skill-grid">
+    <div class="skill-category">
+      <h4>Languages</h4>
+      <div class="tech-tags">
+        <span>Python</span><span>C#</span><span>C</span><span>Objective-C</span><span>Java</span><span>SQL</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Data & Orchestration</h4>
+      <div class="tech-tags">
+        <span>Apache Airflow</span><span>Apache Kafka</span><span>RabbitMQ</span><span>ETL</span><span>Stream Processing</span><span>BigQuery</span><span>Teradata Vantage</span><span>Iceberg</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Cloud & Infrastructure</h4>
+      <div class="tech-tags">
+        <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Microservices</span><span>REST APIs</span><span>CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Architecture</h4>
+      <div class="tech-tags">
+        <span>Distributed Systems</span><span>High Availability</span><span>Platform Design</span><span>Data Pipelines</span><span>Vector Databases</span><span>RAG</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Domains</h4>
+      <div class="tech-tags">
+        <span>Industrial IoT</span><span>Factory Automation</span><span>Deep Learning Analytics</span><span>Data Engineering</span><span>AI Governance</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Platforms & Protocols</h4>
+      <div class="tech-tags">
+        <span>Linux</span><span>macOS</span><span>Windows</span><span>iOS</span><span>Android</span><span>Modbus</span><span>TCP/IP</span><span>RTSP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>Beyond Work</h2>
+  <p>When I'm not building systems, you'll find me outdoors. I love hiking and camping — there's something about disconnecting from screens and being in nature that resets the way I think about problems. I also enjoy planning trips with friends, which honestly exercises a lot of the same project management muscles as engineering (logistics, contingencies, keeping everyone aligned on the plan).</p>
+  <p>On the athletic side, I'm a long-time badminton player and currently learning tennis — humbling myself with a new skill after years of being decent at another racquet sport. There's a useful lesson in that for engineering too: staying a beginner at something keeps you empathetic to the learning curve.</p>
+</section>
+
+</div>
