@@ -83,6 +83,13 @@ layout: default
 </article>
 
 <script>
+document.querySelectorAll('.post-content table').forEach(function(table) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'table-wrapper';
+  table.parentNode.insertBefore(wrapper, table);
+  wrapper.appendChild(table);
+});
+
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(function() {
     const button = event.target.closest('button');
