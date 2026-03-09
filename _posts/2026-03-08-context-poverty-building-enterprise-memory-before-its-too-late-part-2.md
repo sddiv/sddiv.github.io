@@ -95,7 +95,7 @@ Like OTF, the protocol would decouple capture from retrieval. Any tool can emit.
 
 If why-data lives in a shared graph, then context specifications no longer need to carry all of the reasoning themselves.
 
-An [NLSpec](link) is not an artifact — it is structured context. A product specification that captures intent, constraints, and reasoning in a form that both humans and AI can work from. An [OpSpec](link) does the same for operational processes. They are why-data, not output.
+An [NLSpec](https://github.com/sddiv/NLSpec-Specification) is not an artifact — it is structured context. A product specification that captures intent, constraints, and reasoning in a form that both humans and AI can work from. An [OpSpec](https://github.com/sddiv/OpSpec-Specification) does the same for operational processes. They are why-data, not output.
 
 When Enterprise Memory exists, these specifications can point to the graph instead of embedding every business rule and constraint inline. A coding agent working from an NLSpec can query Enterprise Memory in real time — retrieving business rules, constraints, and tradeoffs at the moment it needs them, not because someone anticipated every possible question and wrote it into the spec.
 
