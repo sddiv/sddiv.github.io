@@ -5,7 +5,7 @@ date: 2026-03-08
 author: Divyendu Singh
 ---
 
-Part 1 mapped the problem. Most enterprises are context poor — they have the artifacts but not the reasoning that produced them. By 2027, the gap between the organizations that captured why-data and the ones that did not will be visible to everyone.
+[Part 1](https://sddiv.github.io/blog/2026/03/07/context-poverty-why-most-enterprise-ai-will-fail-by-2027-part-1/) mapped the problem. Most enterprises are context poor — they have the artifacts but not the reasoning that produced them. By 2027, the gap between the organizations that captured why-data and the ones that did not will be visible to everyone.
 
 This is what you do about it.
 
