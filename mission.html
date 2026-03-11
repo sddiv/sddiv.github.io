@@ -46,15 +46,27 @@ permalink: /mission/
   }
 
   .mission-page .beliefs {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     margin: 32px 0;
   }
 
   .mission-page .belief {
-    border-left: 3px solid var(--blue);
-    padding-left: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blue);
+    border-radius: 8px;
+    padding: 24px 28px;
+    transition: box-shadow 0.2s;
+  }
+
+  .mission-page .belief:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .mission-page .belief.full-width {
+    grid-column: 1 / -1;
   }
 
   .mission-page .belief strong {
@@ -62,12 +74,21 @@ permalink: /mission/
     font-size: 1rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .mission-page .belief p {
     margin-bottom: 0;
-    font-size: 0.97rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .mission-page .beliefs {
+      grid-template-columns: 1fr;
+    }
+    .mission-page .belief.full-width {
+      grid-column: auto;
+    }
   }
 
   .mission-page .commitment {
@@ -130,7 +151,7 @@ permalink: /mission/
     <p>For decades, technology forced people to adapt to it. The same interface for every user. The same workflow for every team. The same treatment protocol for every patient. AI inverts that — we can now customize technology to the individual, quickly and at scale. Personalized education that adapts to how you learn. Healthcare that accounts for your biology. Tools that reshape themselves around your problem. That's not incremental improvement. That's a fundamentally different relationship between people and technology.</p>
   </div>
 
-  <div class="belief">
+  <div class="belief full-width">
     <strong>The next wave of human advancement is waiting.</strong>
     <p>Drug discovery timelines measured in decades. Climate models that can't run at the resolution we need. These aren't unsolvable problems. They're engineering problems. And engineering problems get solved by people who build tools.</p>
   </div>
