@@ -135,6 +135,7 @@ Marketplaces should allow customization at install time. When a user downloads a
 And when software launches for the first time, it should apply what it already knows. If the OS has a mental model profile, the app should use it on the get-go — map the user's cognitive preferences to its existing configuration surface. Not a blank slate. Not a tutorial. A product that already fits.
 
 This is where we start. These are incremental steps that work within today's software stack. As AI adoption deepens — as coding agents get better, as specs become the primary artifact, as the economics of variation continue to drop — we expand beyond configuration into structural personalization. The architecture for that expansion is the subject of the next post: a 4-layer composition model that makes deep personalization economically viable for the first time.
+
 ---
 
 **[NLSpec Specification](https://github.com/sddiv/NLSpec-Specification)** | **[OpSpec Specification](https://github.com/sddiv/OpSpec-Specification)**
